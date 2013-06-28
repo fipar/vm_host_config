@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# chkconfig: 2345 74 26
+# description: works with stop argument, ignores all others. Suspends any running vagrant boxes
+
+if [ -n "$1" -a "$1" == "stop" ]; then
+	for dir in /home/fipar/vms/*; do
+		pushd $dir
+		vagrant suspend
+		popd
+	done 
+fi
