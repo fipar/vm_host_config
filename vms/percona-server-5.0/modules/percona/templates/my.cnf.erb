@@ -1,0 +1,16 @@
+[mysqld_safe]
+
+[mysqld]
+datadir=/var/lib/mysql
+user=mysql
+log_error=error.log
+
+
+bind-address=<%= ipaddress_eth1 %>
+innodb_log_file_size=64M
+
+[mysql]
+prompt="<%=hostname %> mysql> "
+
+[client]
+user=root
