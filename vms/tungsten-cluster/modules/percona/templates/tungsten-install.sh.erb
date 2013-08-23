@@ -1,0 +1,10 @@
+#!/bin/bash
+
+pushd /opt/
+wget https://s3.amazonaws.com/files.continuent.com/builds/nightly/tungsten-2.0-snapshots/tungsten-replicator-2.1.0-346.tar.gz
+tar xzvf tungsten-replicator-2.1.0-346.tar.gz
+cd tungsten-replicator-2.1.0-346
+export VERBOSE=1
+export PATH=$PWD/cookbook:$PATH
+
+
