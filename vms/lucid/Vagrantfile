@@ -15,8 +15,10 @@ Vagrant::Config.run do |config|
   	vm.memory_size = 256
   	vm.name = "Ubuntu test VM"
   	vm.cpu_execution_cap = 50
+	vm.network :forwarded_port, guest: 22, host: 4848
   end
   config.vm.customize ["modifyvm", :id, "--memory", 256]
+
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
