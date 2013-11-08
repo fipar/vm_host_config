@@ -1,0 +1,21 @@
+[mysqld_safe]
+
+[mysqld]
+datadir=/var/lib/mysql
+user=mysql
+log_error=error.log
+
+#binlog_format=ROW
+#log-bin
+
+bind-address=<%= ipaddress_eth1 %>
+# settings to try and make this work better on the VM
+innodb_log_file_size=64M
+innodb_buffer_pool_size=768M
+innodb_flush_log_at_trx_commit=2
+
+[mysql]
+prompt="<%=hostname %> mysql> "
+
+[client]
+user=root
