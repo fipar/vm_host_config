@@ -5,6 +5,8 @@ rpm -qa|grep riak >/dev/null 2>&1 || {
     rpm -ivh http://yum.basho.com/gpg/basho-release-5-1.noarch.rpm
     yum -y update
     yum -y install riak 
+    echo 'root		ALL=(ALL)		NOPASSWD: ALL' >> /etc/sudoers
+    sudo service riak start
 }
 
 
