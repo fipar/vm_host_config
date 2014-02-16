@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.define :neo4j do |node1_config|
+	node1_config.vm.box = 'debian_wheezy'
+	node1_config.vm.box_url = 'https://dl.dropboxusercontent.com/s/xymcvez85i29lym/vagrant-debian-wheezy64.box' 
+	node1_config.vm.hostname = 'neo4j'
+	node1_config.vm.provider :virtualbox do |vb|
+		vb.customize ["modifyvm", :id, "--memory", "1024", "--cpuexecutioncap", "60"] 
+	end
+	node1_config.vm.network "public_network" 
+	node1_config.vm.provision "shell", path: "./provision.sh"
+   end
+
+end
